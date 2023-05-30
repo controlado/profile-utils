@@ -44,7 +44,6 @@ async function setupCopyBadges() {
 
     const firstBadge = playerPreferences.challengeIds[0]
     playerPreferences.challengeIds = Array(3).fill(firstBadge)
-
     await requests.updatePlayerPreferences(playerPreferences)
   })
   container.addEventListener("contextmenu", async () => {
@@ -55,7 +54,6 @@ async function setupCopyBadges() {
     }
 
     playerPreferences.challengeIds = []
-
     await requests.updatePlayerPreferences(playerPreferences)
   })
 }
