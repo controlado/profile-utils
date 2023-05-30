@@ -39,6 +39,7 @@ async function setupCopyBadges() {
     const playerPreferences = await requests.getPlayerPreferences()
 
     if (!playerPreferences.challengeIds.length) {
+      console.debug(`${plugin.name}: The player does not have a defined badge.`)
       return
     }
 
@@ -50,6 +51,7 @@ async function setupCopyBadges() {
     const playerPreferences = await requests.getPlayerPreferences()
 
     if (!playerPreferences.challengeIds.length) {
+      console.debug(`${plugin.name}: The player badges are already empty.`)
       return
     }
 
@@ -67,7 +69,7 @@ async function onMutation() {
 }
 
 async function initPlugin() {
-  console.debug(plugin.name, "feito com carinho pelo Balaclava#1912")
+  console.debug(`${plugin.name}: feito com carinho pelo Balaclava#1912`)
   utils.routineAddCallback(onMutation, [".rcp-fe-lol-profiles-main"])
 }
 
