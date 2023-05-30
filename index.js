@@ -61,7 +61,11 @@ async function setupCopyBadges() {
 }
 
 async function onMutation() {
-  await Promise.all([setupInvisibleBanner(), setupCopyBadges()])
+  const toSetup = [
+    setupInvisibleBanner(),
+    setupCopyBadges()
+  ]
+  await Promise.all(toSetup)
 }
 
 async function initPlugin() {
