@@ -4,7 +4,7 @@
 
 Utilidades para o seu perfil :) <br>
 Banner invisível, copie e limpe emblemas! <br>
-Leia as [instruções](#instructions) para usar
+Leia as [instruções](#instruções) para usar
 
 ![Preview](https://github.com/controlado/profile-utils/assets/71716568/8afff03a-8e72-4603-ac1a-a2497f48e299)
 
