@@ -23,13 +23,7 @@ async function setupInvisibleBanner() {
   container.addEventListener("mouseleave", () => { container.style.opacity = "1" })
   container.addEventListener("click", async () => {
     const playerPreferences = await requests.getPlayerPreferences()
-
-    if (playerPreferences.bannerAccent === "2") {
-      playerPreferences.bannerAccent = "1"
-    } else {
-      playerPreferences.bannerAccent = "2"
-    }
-
+    playerPreferences.bannerAccent = playerPreferences.bannerAccent === "2" ? "1" : "2"
     await requests.updatePlayerPreferences(playerPreferences)
   })
 }
@@ -49,11 +43,7 @@ async function setupCopyBadges() {
     }
 
     const firstBadge = playerPreferences.challengeIds[0]
-    playerPreferences.challengeIds.length = 0
-
-    for (let index = 0; index < 3; index++) {
-      playerPreferences.challengeIds.push(firstBadge)
-    }
+    playerPreferences.challengeIds = Array(3).fill(firstBadge)
 
     await requests.updatePlayerPreferences(playerPreferences)
   })
@@ -64,14 +54,14 @@ async function setupCopyBadges() {
       return
     }
 
-    playerPreferences.challengeIds.length = 0
+    playerPreferences.challengeIds = []
+
     await requests.updatePlayerPreferences(playerPreferences)
   })
 }
 
 async function onMutation() {
-  await setupInvisibleBanner()
-  await setupCopyBadges()
+  await Promise.all([setupInvisibleBanner(), setupCopyBadges()])
 }
 
 async function initPlugin() {
