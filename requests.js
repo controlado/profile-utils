@@ -47,7 +47,7 @@ export async function getPlayerPreferences() {
     const responseData = await response.json()
     const playerPreferences = { challengeIds: [] }
 
-    if (responseData.title.itemId !== -1) { playerPreferences.title = responseData.title.itemId }
+    if (responseData.title.itemId !== -1) { playerPreferences.title = responseData.title.itemId.toString() }
     if (responseData.bannerId) { playerPreferences.bannerAccent = responseData.bannerId }
     if (responseData.topChallenges.length) {
         for (const badgeChallenge of responseData.topChallenges) {
