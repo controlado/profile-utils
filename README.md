@@ -5,6 +5,8 @@
 Utilities for your profile! <br>
 Invisible banner and copy badges. <br>
 
+![Preview](https://github.com/controlado/profile-utils/assets/71716568/8afff03a-8e72-4603-ac1a-a2497f48e299)
+
 </div>
 <br>
 
