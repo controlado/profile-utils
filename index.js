@@ -1,4 +1,4 @@
-import utils from "../_utils"
+import { addRoutines } from "../controladoUtils"
 import * as requests from "./requests"
 
 /**
@@ -70,7 +70,7 @@ async function onMutation() {
 
 async function initPlugin() {
   console.debug(`${plugin.name}: Report bugs to Balaclava#1912`)
-  utils.routineAddCallback(onMutation, [".rcp-fe-lol-profiles-main"])
+  addRoutines(onMutation)
 }
 
 window.addEventListener("load", initPlugin)
