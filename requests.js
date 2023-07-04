@@ -18,20 +18,20 @@
  * @returns {Promise<Response>} Uma Promise que resolve com os dados da resposta da requisição.
  */
 export async function request(method, endpoint, { headers = {}, body = {} } = {}) {
-    const requestOptions = {
-        method: method,
-        headers: {
-            ...headers,
-            "accept": "application/json",
-            "content-type": "application/json"
-        }
-    }
+  const requestOptions = {
+    method: method,
+    headers: {
+      ...headers,
+      "accept": "application/json",
+      "content-type": "application/json",
+    },
+  };
 
-    if (method !== "GET" && method !== "HEAD") {
-        requestOptions.body = JSON.stringify(body)
-    }
+  if (method !== "GET" && method !== "HEAD") {
+    requestOptions.body = JSON.stringify(body);
+  }
 
-    return await fetch(endpoint, requestOptions)
+  return await fetch(endpoint, requestOptions);
 }
 
 /**
@@ -51,16 +51,16 @@ export async function request(method, endpoint, { headers = {}, body = {} } = {}
  * @returns {Promise<PlayerPreferences>} Uma Promise que resolve com os dados das preferências do jogador.
  */
 export async function getPlayerPreferences() {
-    const endpoint = "/lol-challenges/v1/summary-player-data/local-player"
-    const response = await request("GET", endpoint)
-    const responseData = await response.json()
-    const playerPreferences = { challengeIds: [] }
+  const endpoint = "/lol-challenges/v1/summary-player-data/local-player";
+  const response = await request("GET", endpoint);
+  const responseData = await response.json();
+  const playerPreferences = { challengeIds: [] };
 
-    playerPreferences.challengeIds = responseData.topChallenges.map(badgeChallenge => badgeChallenge.id)
-    if (responseData.title.itemId !== -1) { playerPreferences.title = `${responseData.title.itemId}` }
-    if (responseData.bannerId) { playerPreferences.bannerAccent = responseData.bannerId }
+  playerPreferences.challengeIds = responseData.topChallenges.map(badgeChallenge => badgeChallenge.id);
+  if (responseData.title.itemId !== -1) { playerPreferences.title = `${responseData.title.itemId}`; }
+  if (responseData.bannerId) { playerPreferences.bannerAccent = responseData.bannerId; }
 
-    return playerPreferences
+  return playerPreferences;
 }
 
 /**
@@ -72,6 +72,6 @@ export async function getPlayerPreferences() {
  * @returns {Promise<Response>} Uma Promise que resolve com os dados da resposta da requisição.
  */
 export async function updatePlayerPreferences(playerPreferences) {
-    const endpoint = "/lol-challenges/v1/update-player-preferences"
-    return await request("POST", endpoint, { body: playerPreferences })
+  const endpoint = "/lol-challenges/v1/update-player-preferences";
+  return await request("POST", endpoint, { body: playerPreferences });
 }
