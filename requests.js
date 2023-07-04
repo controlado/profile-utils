@@ -1,8 +1,8 @@
 /**
+ * @author balaclava
  * @name profile-utils
- * @author feminismo (balaclava)
- * @description Utilities for your profile! 🐧
  * @link https://github.com/controlado/profile-utils
+ * @description Utilities for your profile! 🐧
  */
 
 /**
