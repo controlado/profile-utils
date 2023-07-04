@@ -54,27 +54,36 @@ async function setupBadgesFunctions() {
   });
 }
 
-    if (!playerPreferences.challengeIds.length) {
-      console.debug(`${plugin.name}: The player badges are already empty.`)
-      return
-    }
+async function setupRanksFunctions() {
+  const profileElement = document.querySelector("lol-social-avatar > lol-uikit-radial-progress");
+  if (!profileElement || profileElement.hasAttribute("ranks-setup")) { return; }
 
-    playerPreferences.challengeIds = []
-    await requests.updatePlayerPreferences(playerPreferences)
-  })
+  const rankGenerator = function* () {
+    const ranks = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "DIAMOND", "MASTER", "GRANDMASTER", "CHALLENGER"];
+    while (true) {
+      for (let rank of ranks) {
+        yield rank;
+      }
+    }
+  }();
+  profileElement.setAttribute("ranks-setup", "true");
+  profileElement.addEventListener("contextmenu", async () => {
+    const requestBody = { lol: { rankedLeagueTier: rankGenerator.next().value } };
+    await requests.request("PUT", "/lol-chat/v1/me", { body: requestBody });
+  });
 }
 
-async function onMutation() {
-  const toSetup = [
+async function setupFunctions() {
+  await Promise.all([
     setupInvisibleBanner(),
-    setupBadgesFunctions()
-  ]
-  await Promise.all(toSetup)
+    setupBadgesFunctions(),
+    setupRanksFunctions(),
+  ]);
 }
 
 async function initPlugin() {
-  console.debug(`${plugin.name}: Report bugs to Balaclava#1912`)
-  addRoutines(onMutation)
+  console.debug(`${plugin.name}: Report bugs to Balaclava#1912`);
+  addRoutines(setupFunctions);
 }
 
 window.addEventListener("load", initPlugin);
