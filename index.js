@@ -2,10 +2,10 @@ import { addRoutines } from "../controladoUtils"
 import * as requests from "./requests"
 
 /**
- * @author
- * Nome: Yan Gabriel    
- * Discord: Balaclava#1912 (854886148455399436)    
- * GitHub: https://github.com/controlado
+ * @name profile-utils
+ * @author feminismo (balaclava)
+ * @description Utilities for your profile! 🐧
+ * @link https://github.com/controlado/profile-utils
  */
 
 export const plugin = {
