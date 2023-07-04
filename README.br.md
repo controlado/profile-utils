@@ -19,10 +19,10 @@ Leia as [instruções](#instruções) para usar
 
 ## Instruções
 
+**Mudar o elo no chat** (Botão direito no ícone de invocador) [(demonstração)](https://s11.gifyu.com/images/SQXrK.gif) <br>
 **Banner invisível** (Botão esquerdo do mouse no banner) <br>
 **Copiar primeiro emblema** (Botão esquerdo do mouse nos emblemas) <br>
-**Limpar todos os emblemas** (Botão direito do mouse nos emblemas) <br>
-**Mudar o elo no chat** (Botão direito no ícone de invocador)
+**Limpar todos os emblemas** (Botão direito do mouse nos emblemas)
 
 ## Dependências
 

@@ -19,10 +19,10 @@ Read the [instructions section](#instructions) for use
 
 ## Instructions
 
+**Change chat rank** (Right-click on the summoner icon) [(preview)](https://s11.gifyu.com/images/SQXrK.gif) <br>
 **Invisible banner** (Left click on profile banner) <br>
 **Copy first badge** (Left click on badges) <br>
-**Clear all badges** (Right click on badges) <br>
-**Change chat rank** (Right-click on the summoner icon)
+**Clear all badges** (Right click on badges)
 
 ## Dependencies
 
