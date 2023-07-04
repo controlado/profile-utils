@@ -21,7 +21,8 @@ Leia as [instruções](#instruções) para usar
 
 **Banner invisível** (Botão esquerdo do mouse no banner) <br>
 **Copiar primeiro emblema** (Botão esquerdo do mouse nos emblemas) <br>
-**Limpar todos os emblemas** (Botão direito do mouse nos emblemas)
+**Limpar todos os emblemas** (Botão direito do mouse nos emblemas) <br>
+**Mudar o elo no chat** (Botão direito no ícone de invocador)
 
 ## Dependências
 

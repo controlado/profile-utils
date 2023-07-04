@@ -21,7 +21,8 @@ Read the [instructions section](#instructions) for use
 
 **Invisible banner** (Left click on profile banner) <br>
 **Copy first badge** (Left click on badges) <br>
-**Clear all badges** (Right click on badges)
+**Clear all badges** (Right click on badges) <br>
+**Change chat rank** (Right-click on the summoner icon)
 
 ## Dependencies
 
