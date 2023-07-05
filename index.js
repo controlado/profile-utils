@@ -1,5 +1,5 @@
-import { addRoutines } from "../controladoUtils";
-import * as requests from "./requests";
+import { addRoutines, request } from "../controladoUtils";
+import { getPlayerPreferences, updatePlayerPreferences } from "./requests";
 
 /**
  * @author balaclava
@@ -24,9 +24,9 @@ async function setupInvisibleBanner() {
   bannerContainer.addEventListener("mouseenter", () => bannerContainer.style.opacity = "0.5");
   bannerContainer.addEventListener("mouseleave", () => bannerContainer.style.opacity = "1");
   bannerContainer.addEventListener("click", async () => {
-    const playerPreferences = await requests.getPlayerPreferences();
+    const playerPreferences = await getPlayerPreferences();
     playerPreferences.bannerAccent = playerPreferences.bannerAccent === "2" ? "1" : "2";
-    await requests.updatePlayerPreferences(playerPreferences);
+    await updatePlayerPreferences(playerPreferences);
   });
 }
 
@@ -38,18 +38,18 @@ async function setupBadgesFunctions() {
   badgesContainer.addEventListener("mouseenter", () => badgesContainer.style.opacity = "0.5");
   badgesContainer.addEventListener("mouseleave", () => badgesContainer.style.opacity = "1");
   badgesContainer.addEventListener("click", async () => {
-    const playerPreferences = await requests.getPlayerPreferences();
+    const playerPreferences = await getPlayerPreferences();
     if (playerPreferences.challengeIds.length) {
       const firstBadge = playerPreferences.challengeIds[0];
       playerPreferences.challengeIds = Array(3).fill(firstBadge);
-      await requests.updatePlayerPreferences(playerPreferences);
+      await updatePlayerPreferences(playerPreferences);
     }
   });
   badgesContainer.addEventListener("contextmenu", async () => {
-    const playerPreferences = await requests.getPlayerPreferences();
+    const playerPreferences = await getPlayerPreferences();
     if (playerPreferences.challengeIds.length) {
       playerPreferences.challengeIds = [];
-      await requests.updatePlayerPreferences(playerPreferences);
+      await updatePlayerPreferences(playerPreferences);
     }
   });
 }
@@ -68,8 +68,8 @@ async function setupRanksFunctions() {
   }();
   profileElement.setAttribute("ranks-setup", "true");
   profileElement.addEventListener("contextmenu", async () => {
-    const requestBody = { lol: { rankedLeagueTier: rankGenerator.next().value } };
-    await requests.request("PUT", "/lol-chat/v1/me", { body: requestBody });
+    const body = { lol: { rankedLeagueTier: rankGenerator.next().value } };
+    await request("PUT", "/lol-chat/v1/me", { body });
   });
 }
 
