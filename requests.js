@@ -1,38 +1,11 @@
+import { request } from "../controladoUtils";
+
 /**
  * @author balaclava
  * @name profile-utils
  * @link https://github.com/controlado/profile-utils
  * @description Utilities for your profile! 🐧
  */
-
-/**
- * Função que realiza uma requisição utilizando o método fetch.
- *
- * @async
- * @function
- * @param {string} method - O método HTTP a ser utilizado (por exemplo, "GET", "POST", "PUT", "DELETE").
- * @param {string} endpoint - A URL do endpoint da API.
- * @param {Object} [options] - As opções da requisição.
- * @param {Object} [options.headers] - Os cabeçalhos da requisição (opcional, padrão é um objeto vazio).
- * @param {Object} [options.body] - O corpo da requisição (opcional, padrão é um objeto vazio).
- * @returns {Promise<Response>} Uma Promise que resolve com os dados da resposta da requisição.
- */
-export async function request(method, endpoint, { headers = {}, body = {} } = {}) {
-  const requestOptions = {
-    method: method,
-    headers: {
-      ...headers,
-      "accept": "application/json",
-      "content-type": "application/json",
-    },
-  };
-
-  if (method !== "GET" && method !== "HEAD") {
-    requestOptions.body = JSON.stringify(body);
-  }
-
-  return await fetch(endpoint, requestOptions);
-}
 
 /**
  * Representa as preferências do jogador.
@@ -51,8 +24,7 @@ export async function request(method, endpoint, { headers = {}, body = {} } = {}
  * @returns {Promise<PlayerPreferences>} Uma Promise que resolve com os dados das preferências do jogador.
  */
 export async function getPlayerPreferences() {
-  const endpoint = "/lol-challenges/v1/summary-player-data/local-player";
-  const response = await request("GET", endpoint);
+  const response = await request("GET", "/lol-challenges/v1/summary-player-data/local-player");
   const responseData = await response.json();
   const playerPreferences = { challengeIds: [] };
 
