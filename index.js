@@ -1,4 +1,4 @@
-import { addRoutines, request } from "../controladoUtils";
+import { addRoutines, request } from "../_controladoUtils";
 import { getPlayerPreferences, updatePlayerPreferences } from "./requests";
 
 /**
@@ -16,8 +16,8 @@ export const plugin = {
 
 async function setupInvisibleBanner() {
   const bannerContainer = document.querySelector("lol-regalia-profile-v2-element")?.
-      shadowRoot.querySelector("lol-regalia-banner-v2-element")?.
-      shadowRoot.querySelector("div");
+    shadowRoot.querySelector("lol-regalia-banner-v2-element")?.
+    shadowRoot.querySelector("div");
   if (!bannerContainer || bannerContainer.hasAttribute("invisible-banner-setup")) { return; }
 
   bannerContainer.setAttribute("invisible-banner-setup", "true");

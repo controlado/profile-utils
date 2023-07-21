@@ -27,7 +27,7 @@ Read the [instructions section](#instructions) for use
 ## Dependencies
 
 [Pengu Loader 1.0.4](https://github.com/PenguLoader/PenguLoader) (or any higher version) <br>
-[controladoUtils.js](https://github.com/controlado/pengu-plugins/blob/master/controladoUtils.js) (must be in the plugins folder)
+[_controladoUtils.js](https://github.com/controlado/pengu-plugins/blob/master/_controladoUtils.js) (must be in the plugins folder)
 
 ## Installation
 
@@ -40,7 +40,7 @@ The structure should look something like this:
 📂 Pengu Loader
 └── 📂 plugins
     ├── 📂 @default
-    ├── 📄 controladoUtils.js
+    ├── 📄 _controladoUtils.js
     └── 📂 profile-utils
         └── 📄 index.js
 ```

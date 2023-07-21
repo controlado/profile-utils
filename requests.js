@@ -1,4 +1,4 @@
-import { request } from "../controladoUtils";
+import { request } from "../_controladoUtils";
 
 /**
  * @author balaclava
