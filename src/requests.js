@@ -1,4 +1,4 @@
-import { request } from "../_controladoUtils";
+import { request } from "https://cdn.skypack.dev/balaclava-utils@latest";
 
 /**
  * @author balaclava
@@ -45,5 +45,5 @@ export async function getPlayerPreferences() {
  */
 export async function updatePlayerPreferences(playerPreferences) {
   const endpoint = "/lol-challenges/v1/update-player-preferences";
-  return await request("POST", endpoint, { body: playerPreferences });
+  return request("POST", endpoint, { body: playerPreferences });
 }
