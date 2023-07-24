@@ -68,7 +68,6 @@ async function setupRanksFunctions() {
 }
 
 window.addEventListener("load", () => {
-  console.debug("profile-utils: Report bugs to Balaclava#1912");
   addRoutines(() => {
     Promise.all([
       setupInvisibleBanner(),
@@ -76,4 +75,5 @@ window.addEventListener("load", () => {
       setupRanksFunctions(),
     ]);
   });
+  console.debug("profile-utils: Report bugs to Balaclava#1912");
 });
