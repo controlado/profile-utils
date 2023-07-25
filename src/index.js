@@ -1,5 +1,6 @@
 import { addRoutines, request } from "https://cdn.skypack.dev/balaclava-utils@latest";
 import { getPlayerPreferences, updatePlayerPreferences } from "./requests";
+import { version } from "../package.json";
 
 /**
  * @author balaclava
@@ -75,5 +76,5 @@ window.addEventListener("load", () => {
       setupRanksFunctions(),
     ]);
   });
-  console.debug("profile-utils: Report bugs to Balaclava#1912");
+  console.debug(`profile-utils(${version}): Report bugs to Balaclava#1912`);
 });
