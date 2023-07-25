@@ -55,7 +55,7 @@ async function setupRanksFunctions() {
   profileElement.setAttribute("ranks-setup", "true");
 
   const rankGenerator = function* () {
-    const ranks = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "DIAMOND", "MASTER", "GRANDMASTER", "CHALLENGER"];
+    const ranks = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "EMERALD", "DIAMOND", "MASTER", "GRANDMASTER", "CHALLENGER"];
     while (true) {
       yield* ranks;
     }
