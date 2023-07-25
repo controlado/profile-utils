@@ -61,7 +61,7 @@ async function setupRanksFunctions() {
     }
   }();
 
-  profileElement.addEventListener("contextmenu", async () => {
+  profileElement.addEventListener("contextmenu", () => {
     const nextRank = rankGenerator.next().value;
     const body = { lol: { rankedLeagueTier: nextRank } };
     request("PUT", "/lol-chat/v1/me", { body });
